@@ -1,0 +1,24 @@
+{% extends 'portfolio/base.html' %}
+{% block content %}
+
+<h1>Agam's Portfolio Of Projects</h1>
+<p>
+This is a home page for portfolio project.<br>
+
+{% load static %}
+
+
+<img src="{% static 'portfolio/static_photo.jpeg' %}">
+
+
+{% for project in projects %}
+	<br>{{ project.title }}
+	{{ project.description }}
+	<br><img src="{{ project.image.url }}">
+	{% if project.url %}
+	<br><a href="{{ project.url }}">Link</a>
+	{% endif %}
+{% endfor %}
+<h2>Welcome!</h2>
+{% endblock %}
+</p>
